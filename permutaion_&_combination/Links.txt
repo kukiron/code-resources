@@ -1,0 +1,8 @@
+Permutation of Array -->
+https://stackoverflow.com/questions/9960908/permutations-in-javascript
+
+Combination of Array -->
+https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
+
+Details -->
+https://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n/8171776#8171776
