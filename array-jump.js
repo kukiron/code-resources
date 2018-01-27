@@ -1,30 +1,24 @@
 /**
- * Get the number of jumps for a pawn to exit out of an array
- * jump pattern --> from A[k] = M to A[K + M]
- * return -1 if the pawn never gets out of the array
+ * Get the number of jumps for a pawn to exit array
+ * Jump pattern --> from A[k] = M to A[K + M]
+ * Return -1 if the pawn never gets out of the array
  */
 
 function arrayJump(A) {
-  let index = 0,
-    current = 0,
-    count = 0,
-    len = A.length,
-    arr = []
+  let current = 0,
+    jumps = 0
 
-  do {
-    current = index
-    index += A[index]
+  while (current >= 0 && current < A.length) {
+    if (A[current]) {
+      let next = current + A[current]
 
-    if (count >= len) return -1
-    else count++
+      A[current] = 0
+      current = next
+      jumps += 1
+    } else return -1
+  }
 
-    // Get the record of all the pawn positions
-    arr.push(current)
-  } while (index < len)
-
-  return arr.length - 1
+  return jumps
 }
 
-const jumpNum = arrayJump([1, 3, 1, 1, 1, 4])
-jumpNum
-// https://stackoverflow.com/questions/15362852/simulating-pawn-jump-in-the-array-vector
+module.exports = arrayJump
