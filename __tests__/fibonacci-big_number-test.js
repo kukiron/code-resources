@@ -30,6 +30,10 @@ describe("n-th Fibonacci", () => {
   })
 
   it("has last six digits", () => {
+    expect(fibonacci(100000)).toEqual(746875)
+  })
+
+  it("has last six digits", () => {
     expect(fibonacci(500000)).toEqual(453125)
   })
 })
