@@ -20,8 +20,8 @@ Array.prototype.sameStructureAs = function(other) {
 Array.prototype.sameStructureAs = function(other) {
   return this.length === other.length
     ? this.every(
-      (el, i) => (Array.isArray(el) ? el.sameStructureAs(other[i]) : true)
-    )
+        (el, i) => (Array.isArray(el) ? el.sameStructureAs(other[i]) : true)
+      )
     : false
 }
 

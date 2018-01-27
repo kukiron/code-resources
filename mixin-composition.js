@@ -43,22 +43,19 @@ const withBattery = ({ capacity }) => o => {
   }
 }
 
-const createDrone = ({ capacity = '3000mAh' }) => pipe(
-  withFlying,
-  withBattery({ capacity }),
-  withConstructor(createDrone)
-)({})
+const createDrone = ({ capacity = "3000mAh" }) =>
+  pipe(withFlying, withBattery({ capacity }), withConstructor(createDrone))({})
 
-const myDrone = createDrone({ capacity: '5500mAh' })
+const myDrone = createDrone({ capacity: "5500mAh" })
 
 console.log(`
-  can fly:  ${ myDrone.fly().isFlying() === true}
-  can land: ${ myDrone.land().isFlying() === false}
-  battery capacity: ${ myDrone.capacity}
-  battery status: ${ myDrone.draw(50).getCharge()}%
-  battery drained: ${ myDrone.draw(75).getCharge()}%
+  can fly:  ${myDrone.fly().isFlying() === true}
+  can land: ${myDrone.land().isFlying() === false}
+  battery capacity: ${myDrone.capacity}
+  battery status: ${myDrone.draw(50).getCharge()}%
+  battery drained: ${myDrone.draw(75).getCharge()}%
 `)
 
 console.log(`
-  constructor linked: ${ myDrone.constructor === createDrone}
+  constructor linked: ${myDrone.constructor === createDrone}
 `)
